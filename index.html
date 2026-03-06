@@ -4,212 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bilimevi — Başvuru Formu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --ink: #1a1a2e;
-      --paper: #f5f0e8;
-      --teal: #0d7c7c;
-      --teal-light: #e0f2f1;
-      --accent: #c8a96e;
-      --muted: #7a7a8a;
-    }
-
     html, body {
       min-height: 100vh;
-      background: var(--paper);
-      font-family: 'DM Sans', sans-serif;
-      color: var(--ink);
+      background: #ffffff;
     }
 
     body {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-    }
-
-    /* ── Header ── */
-    header {
-      padding: 2rem 2.5rem 1.5rem;
-      border-bottom: 1px solid rgba(13,124,124,0.15);
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      background: white;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      background: var(--teal);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo-mark svg {
-      width: 22px;
-      height: 22px;
-      fill: white;
-    }
-
-    .header-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      line-height: 1.2;
-    }
-
-    .header-text span {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* ── Main ── */
-    main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem 4rem;
+      padding: 2.5rem 1.5rem 4rem;
     }
 
-    .intro {
-      text-align: center;
-      max-width: 480px;
-      margin-bottom: 2.5rem;
+    .logo {
+      margin-bottom: 2rem;
     }
 
-    .intro h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
+    .logo img {
+      height: 60px;
+      width: auto;
+      display: block;
     }
 
-    .intro h2 em {
-      font-style: italic;
-      color: var(--teal);
-    }
-
-    .intro p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: var(--accent);
-      margin: 1rem auto;
-      border-radius: 2px;
-    }
-
-    /* ── Form Card ── */
-    .form-card {
+    .form-wrap {
       width: 100%;
       max-width: 600px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(26,26,46,0.08), 0 1px 4px rgba(26,26,46,0.04);
-      padding: 2rem;
-      border: 1px solid rgba(13,124,124,0.08);
     }
 
-    /* Kylas form container */
     #kl__form-container {
       min-height: 300px;
-    }
-
-    /* ── Footer ── */
-    footer {
-      padding: 1.25rem 2.5rem;
-      border-top: 1px solid rgba(13,124,124,0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      background: white;
-    }
-
-    footer span {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 300;
-    }
-
-    footer a {
-      font-size: 0.75rem;
-      color: var(--teal);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Fade-in ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .intro  { animation: fadeUp 0.5s ease both; }
-    .form-card { animation: fadeUp 0.5s 0.15s ease both; }
-
-    /* ── Responsive ── */
-    @media (max-width: 480px) {
-      header { padding: 1.25rem 1.25rem 1rem; }
-      .intro h2 { font-size: 1.6rem; }
-      .form-card { padding: 1.25rem; border-radius: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-mark">
-      <!-- Globe / education icon -->
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 2c.83 0 1.9.9 2.72 2.5H9.28C10.1 4.9 11.17 4 12 4zm-3.5.9A11.6 11.6 0 0 0 7.07 8.5H4.26A8.04 8.04 0 0 1 8.5 4.9zM4.07 10.5h3.43a14.7 14.7 0 0 0 0 3H4.07a8 8 0 0 1 0-3zm.19 5h2.81c.3 1.04.74 2 1.29 2.8A8.05 8.05 0 0 1 4.26 15.5zm5.02 0h5.44c-.78 1.83-1.95 3-2.72 3s-1.94-1.17-2.72-3zm6.22 0h2.24a8.05 8.05 0 0 1-4.1 2.8c.55-.8.99-1.76 1.29-2.8zm2.43-2h-3.43a14.7 14.7 0 0 0 0-3h3.43a8 8 0 0 1 0 3zm-3.93-5h3.43a8.05 8.05 0 0 1-4.1-2.6c.55.8.99 1.76 1.29 2.8l-.62-.2zm-2.15-3c.77 0 1.94 1.17 2.72 3H9.28c.78-1.83 1.95-3 2.72-3zm-3.38.4c-.55.8-.99 1.76-1.29 2.8l.62-.2H7.57a8.04 8.04 0 0 1 3.67-2.6z"/>
-      </svg>
-    </div>
-    <div class="header-text">
-      <h1>Bilimevi</h1>
-      <span>Yurt Dışı Eğitim Danışmanlığı</span>
-    </div>
-  </header>
+  <div class="logo">
+    <img src="https://www.bilimevi.com/assets/images/bilimevi_logo_761.svg" alt="Bilimevi" />
+  </div>
 
-  <main>
-    <div class="intro">
-      <h2>Ücretsiz <em>Danışmanlık</em><br>Formu</h2>
-      <div class="divider"></div>
-      <p>Yurt dışında eğitim hedefleriniz için size özel değerlendirme yapabilmemiz amacıyla aşağıdaki formu doldurunuz.</p>
-    </div>
-
-    <div class="form-card">
-      <!-- Kylas lead capture form -->
-      <div id="kl__form-container"></div>
-      <script src="https://assets.kylas.io/lead-capture-forms/lcf.min.js" form-id="9b4d9b8b-4893-430f-ab5f-60e778e213a8"></script>
-    </div>
-  </main>
-
-  <footer>
-    <span>© 2026 Bilimevi.</span>
-    <span>·</span>
-    <a href="https://bilimevi.com.tr" target="_blank">bilimevi.com.tr</a>
-  </footer>
+  <div class="form-wrap">
+    <div id="kl__form-container"></div>
+    <script src="https://assets.kylas.io/lead-capture-forms/lcf.min.js" form-id="9b4d9b8b-4893-430f-ab5f-60e778e213a8"></script>
+  </div>
 
 </body>
 </html>
